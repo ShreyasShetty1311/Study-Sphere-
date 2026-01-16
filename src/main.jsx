@@ -7,7 +7,7 @@ import Dashboard from './Dashboard.jsx'
 import ChatRoom from './ChatRoom.jsx'
 import './index.css'
 
-// NO useParams / useNavigate here — they are only used inside components!
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
