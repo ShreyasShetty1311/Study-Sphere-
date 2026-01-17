@@ -97,14 +97,47 @@ const joinGroup = async () => {
   return (
     <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #0f172a, #1e293b)', color: 'white', padding: '2rem', fontFamily: '"Poppins", sans-serif' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3rem' }}>
-        <div>
-          <h1 style={{ fontSize: '2.8rem', fontWeight: 800 }}>StudySphere</h1>
-          <p style={{ color: '#94a3b8' }}>Welcome, {user?.email?.split('@')[0]}!</p>
-        </div>
-        <button onClick={handleLogout} style={{ padding: '12px 28px', background: '#ef4444', border: 'none', borderRadius: '12px', color: 'white', fontWeight: 'bold', cursor: 'pointer' }}>
-          Logout
-        </button>
-      </div>
+  <div>
+    <h1 style={{ fontSize: '2.8rem', fontWeight: 800 }}>StudySphere</h1>
+    <p style={{ color: '#94a3b8' }}>Welcome, {user?.email?.split('@')[0]}!</p>
+  </div>
+
+  {/* Right side: Profile + Logout buttons */}
+  <div style={{ display: 'flex', gap: '1rem' }}>
+    <button 
+      onClick={() => navigate('/profile')}
+      style={{
+        padding: '12px 28px',
+        background: '#3b82f6',           // Blue color for Profile
+        border: 'none',
+        borderRadius: '12px',
+        color: 'white',
+        fontWeight: 'bold',
+        cursor: 'pointer',
+        transition: 'background 0.2s'
+      }}
+      onMouseEnter={e => e.currentTarget.style.background = '#2563eb'}  // Darker blue on hover
+      onMouseLeave={e => e.currentTarget.style.background = '#3b82f6'}
+    >
+      Profile
+    </button>
+
+    <button 
+      onClick={handleLogout} 
+      style={{
+        padding: '12px 28px',
+        background: '#ef4444',
+        border: 'none',
+        borderRadius: '12px',
+        color: 'white',
+        fontWeight: 'bold',
+        cursor: 'pointer'
+      }}
+    >
+      Logout
+    </button>
+  </div>
+</div>
 
       <div style={{ display: 'flex', gap: '1rem', marginBottom: '3rem', flexWrap: 'wrap' }}>
         <input placeholder="Search groups..." value={search} onChange={e=>setSearch(e.target.value)}
